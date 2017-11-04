@@ -24,6 +24,9 @@ module.exports = {
     ]
   },
   devServer: {
+    historyApiFallback: {
+      index: "dist/index.html"
+    },
     port: 8080,
     host: 'localhost',
     hot: true,
