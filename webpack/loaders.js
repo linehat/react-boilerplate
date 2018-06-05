@@ -26,17 +26,14 @@ module.exports = {
     test: /\.js$/,
     exclude: /node_modules/,
     use: [
-      {
-        loader: "react-hot-loader/webpack"
-      },
-      babelLoader
+      'babel-loader'
     ]
   },
   jsLoader: {
     test: /\.js$/,
     exclude: /node_modules/,
     use: [
-      babelLoader
+      'babel-loader'
     ]
   },
   lessLoader: {

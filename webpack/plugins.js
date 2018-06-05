@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const env = process.env.NODE_ENV;
 
 module.exports = {
@@ -26,9 +26,14 @@ module.exports = {
   moduleConcatenation: new webpack.optimize.ModuleConcatenationPlugin(),
   //JS压缩
   compress: new UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
+      cache: true,
+      parallel: true,
+      uglifyOptions: {
+        compress: false,
+        ecma: 6,
+        mangle: true
+      },
+      sourceMap: true
   }),
   //定义环境变量
   envDefine: new webpack.DefinePlugin({
@@ -41,4 +46,9 @@ module.exports = {
   }),
   //CSS单独打包
   cssExtract: new ExtractTextPlugin('./bundle.[hash].css'),
+  // disable
+  disabledExtract: new ExtractTextPlugin({
+    filename: 'styles/[name].[contenthash].css',
+    disable: true,
+  })
 };
