@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/index.less";
-import Index from "./router";
+// import Index from "./router";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <Index />;
+    return <div />;
   }
 }
 

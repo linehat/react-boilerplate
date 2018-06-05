@@ -3,6 +3,7 @@ const commons = require('./webpack/commons');
 const plugins = require('./webpack/plugins');
 
 module.exports = {
+  mode: "development",
   entry: [
     'react-hot-loader/patch',
     './src/index.js'
@@ -36,6 +37,6 @@ module.exports = {
     plugins.hotReplacement,
     plugins.moduleConcatenation,
     plugins.htmlGenerate,
-    plugins.dllReference,
+    // plugins.dllReference,
   ]
 };
