@@ -26,13 +26,17 @@ const rootElement = document.getElementById("app");
 //     rootElement
 //   );
 // }
+// ReactDOM.render(
+//   <App/>,
+//   document.getElementById('app'),
+// )
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('root'),
+    rootElement,
   )
 }
 
